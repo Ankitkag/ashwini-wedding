@@ -267,11 +267,9 @@ function initFX() {
   const pad = n => String(n).padStart(2, '0');
 
   function tick() {
-    // Use IST explicitly: compute difference in IST wall-clock
-    const now = new Date();
-    const istNow = new Date(now.toLocaleString('en-US', { timeZone: 'Asia/Kolkata' }));
-    const istTarget = new Date(CONFIG.weddingDateTime);
-    let diff = Math.max(0, istTarget.getTime() - istNow.getTime());
+    // target is absolute epoch (ISO with +05:30 offset); Date.now() is epoch too —
+    // the difference is timezone-independent and always correct.
+    let diff = Math.max(0, target - Date.now());
 
     const d = Math.floor(diff / 864e5); diff -= d * 864e5;
     const h = Math.floor(diff / 36e5);  diff -= h * 36e5;
