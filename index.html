@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ashwini ❤️ Mayur — The Royal Wedding Experience</title>
+<meta name="description" content="You are cordially invited to the royal wedding of Ashwini & Mayur — 2 December 2026, Juni Manawar, Dhar, Madhya Pradesh.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Noto+Serif+Devanagari:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ══════════ LOADER ══════════ -->
+<div class="loader" id="loader" aria-hidden="true">
+  <div class="loader-inner">
+    <div class="loader-om">
+      <span class="om-char">ॐ</span>
+    </div>
+    <div class="loader-names">
+      <span class="loader-name">अश्विनी</span>
+      <span class="loader-amp">&amp;</span>
+      <span class="loader-name">मयूर</span>
+    </div>
+    <div class="loader-bar"><span id="loaderBar"></span></div>
+    <p class="loader-text">Preparing the royal celebration…</p>
+  </div>
+</div>
+
+<!-- ══════════ ENVELOPE INTRO ══════════ -->
+<div class="envelope-scene" id="envelopeScene" role="dialog" aria-label="Open your wedding invitation">
+  <div class="envelope-wrap">
+    <div class="envelope" id="envelope">
+      <div class="env-back"></div>
+      <div class="env-letter">
+        <div class="env-letter-inner">
+          <span class="env-om">ॐ</span>
+          <p class="env-script">You're Invited</p>
+          <p class="env-names">Ashwini <em>&amp;</em> Mayur</p>
+          <p class="env-date">02 · 12 · 2026</p>
+        </div>
+      </div>
+      <div class="env-front"></div>
+      <div class="env-flap"></div>
+      <div class="env-seal">
+        <svg viewBox="0 0 60 60" width="54" height="54" aria-hidden="true">
+          <circle cx="30" cy="30" r="27" fill="none" stroke="#D6B46A" stroke-width="1.5"/>
+          <circle cx="30" cy="30" r="22" fill="none" stroke="#D6B46A" stroke-width="0.8" stroke-dasharray="2 3"/>
+          <text x="30" y="37" text-anchor="middle" font-size="20" fill="#D6B46A" font-family="serif">ॐ</text>
+        </svg>
+      </div>
+    </div>
+    <button class="env-open-btn" id="envOpenBtn" type="button">
+      <span class="env-open-ring"></span>
+      Tap to Open Your Invitation
+    </button>
+  </div>
+</div>
+
+<!-- ══════════ PALACE DOORS ══════════ -->
+<div class="palace-doors" id="palaceDoors" aria-hidden="true">
+  <div class="door door-left">
+    <div class="door-panel">
+      <div class="door-arch"></div>
+      <span class="door-om">ॐ</span>
+      <div class="door-pattern"></div>
+    </div>
+  </div>
+  <div class="door door-right">
+    <div class="door-panel">
+      <div class="door-arch"></div>
+      <span class="door-om">ॐ</span>
+      <div class="door-pattern"></div>
+    </div>
+  </div>
+  <div class="doors-glow"></div>
+</div>
+
+<!-- ══════════ FX LAYERS ══════════ -->
+<canvas id="particles" aria-hidden="true"></canvas>
+<div class="petals-layer" id="petalsLayer" aria-hidden="true"></div>
+<div class="diyas-layer" id="diyasLayer" aria-hidden="true"></div>
+<div class="cursor" id="cursor" aria-hidden="true"></div>
+<div class="cursor-ring" id="cursorRing" aria-hidden="true"></div>
+
+<!-- ══════════ NAV ══════════ -->
+<header class="nav" id="nav">
+  <a href="#hero" class="nav-logo">
+    <span class="nav-logo-om">ॐ</span>
+    <span class="nav-logo-text">A <em>&amp;</em> M</span>
+  </a>
+  <nav class="nav-links" id="navLinks" aria-label="Primary">
+    <a href="#couple">Couple</a>
+    <a href="#countdown">Countdown</a>
+    <a href="#events">Events</a>
+    <a href="#venue">Venue</a>
+    <a href="#family">Family</a>
+    <a href="#rsvp">RSVP</a>
+  </nav>
+  <div class="nav-actions">
+    <button class="icon-btn" id="musicBtn" type="button" aria-label="Play music" title="Play / Pause music">
+      <svg class="icon-music" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+      <svg class="icon-mute" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="display:none"><path d="M11 5 6 9H2v6h4l5 4V5z"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
+    </button>
+    <button class="icon-btn" id="menuBtn" type="button" aria-label="Menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ══════════ 3 · PALACE HERO ══════════ -->
+  <section class="hero" id="hero">
+    <div class="hero-bg" data-parallax="0.25">
+      <div class="hero-palace"></div>
+      <div class="hero-sky"></div>
+    </div>
+    <div class="hero-content">
+      <p class="hero-eyebrow reveal">शुभ विवाह की शुभकामनाएँ</p>
+      <h1 class="hero-names">
+        <span class="hero-name bride reveal">अश्विनी</span>
+        <span class="hero-amp reveal">&nbsp;❤&nbsp;</span>
+        <span class="hero-name groom reveal">मयूर</span>
+      </h1>
+      <div class="hero-rule reveal"><span></span><i>ॐ</i><span></span></div>
+      <p class="hero-sub reveal">Ashwini <em>&amp;</em> Mayur</p>
+      <p class="hero-date reveal">Wednesday · 2 December 2026</p>
+      <p class="hero-place reveal">Juni Manawar · District Dhar · Madhya Pradesh</p>
+      <a href="#couple" class="hero-scroll reveal" aria-label="Scroll down">
+        <span class="scroll-mouse"><span class="scroll-dot"></span></span>
+        <span class="scroll-text">Scroll</span>
+      </a>
+    </div>
+    <div class="hero-floral hero-floral-l" aria-hidden="true"></div>
+    <div class="hero-floral hero-floral-r" aria-hidden="true"></div>
+  </section>
+
+  <!-- ══════════ 4 · COUPLE ══════════ -->
+  <section class="section couple" id="couple">
+    <div class="section-head">
+      <p class="eyebrow reveal">The Beloved Couple</p>
+      <h2 class="section-title reveal">Two Souls, <em>One Celebration</em></h2>
+      <div class="section-rule reveal"></div>
+    </div>
+    <div class="couple-grid">
+      <article class="person-card reveal">
+        <div class="person-frame">
+          <div class="person-photo placeholder" data-photo="assets/couple/bride.jpg">
+            <span class="placeholder-hint">Bride Photo</span>
+          </div>
+          <div class="person-monogram">अ</div>
+        </div>
+        <h3 class="person-name">Ashwini <span class="person-deg">M.Sc.</span></h3>
+        <p class="person-hindi">अश्विनी</p>
+        <p class="person-line">Daughter of Shri Lokesh Bhandari</p>
+        <p class="person-line dim">Granddaughter of Late Shri Radheshyamji Bhandari</p>
+      </article>
+      <div class="couple-amp reveal" aria-hidden="true">&amp;</div>
+      <article class="person-card reveal">
+        <div class="person-frame">
+          <div class="person-photo placeholder" data-photo="assets/couple/groom.jpg">
+            <span class="placeholder-hint">Groom Photo</span>
+          </div>
+          <div class="person-monogram">म</div>
+        </div>
+        <h3 class="person-name">Mayur <span class="person-deg">B.E. Civil</span></h3>
+        <p class="person-hindi">मयूर</p>
+        <p class="person-line">Son of Shri Bharat Singh Kushwah</p>
+        <p class="person-line dim">Grandson of Late Shri Basant Singh Kushwah</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- ══════════ 5 · COUNTDOWN ══════════ -->
+  <section class="section countdown-sec" id="countdown">
+    <div class="countdown-bg" data-parallax="0.15"></div>
+    <div class="section-head">
+      <p class="eyebrow reveal">Counting the Moments</p>
+      <h2 class="section-title reveal">The Wait Is <em>Almost Over</em></h2>
+      <div class="section-rule reveal"></div>
+    </div>
+    <div class="countdown-grid reveal" id="countdownGrid">
+      <div class="cd-cell"><span class="cd-num" id="cdDays">00</span><span class="cd-label">Days</span></div>
+      <div class="cd-cell"><span class="cd-num" id="cdHours">00</span><span class="cd-label">Hours</span></div>
+      <div class="cd-cell"><span class="cd-num" id="cdMins">00</span><span class="cd-label">Minutes</span></div>
+      <div class="cd-cell"><span class="cd-num" id="cdSecs">00</span><span class="cd-label">Seconds</span></div>
+    </div>
+    <p class="countdown-note reveal">Until the auspicious Muhurat · IST</p>
+  </section>
+
+  <!-- ══════════ 6 · EVENTS TIMELINE ══════════ -->
+  <section class="section events" id="events">
+    <div class="section-head">
+      <p class="eyebrow reveal">Celebration Schedule</p>
+      <h2 class="section-title reveal">Wedding <em>Events</em></h2>
+      <div class="section-rule reveal"></div>
+    </div>
+    <div class="timeline">
+
+      <article class="tl-item reveal">
+        <div class="tl-date"><span class="tl-day">30</span><span class="tl-mon">NOV</span></div>
+        <div class="tl-card">
+          <span class="tl-time">9:00 AM</span>
+          <h3>श्री गणेश पूजन एवं शीतला माता पूजन</h3>
+          <p>Ganesh &amp; Sheetla Mata Puja — an auspicious beginning to the celebrations.</p>
+        </div>
+      </article>
+
+      <article class="tl-item reveal">
+        <div class="tl-date"><span class="tl-day">01</span><span class="tl-mon">DEC</span></div>
+        <div class="tl-card">
+          <span class="tl-time">9:00 AM</span>
+          <h3>मंडप</h3>
+          <p>The sacred wedding pavilion ceremony.</p>
+        </div>
+      </article>
+
+      <article class="tl-item reveal">
+        <div class="tl-date"><span class="tl-day">01</span><span class="tl-mon">DEC</span></div>
+        <div class="tl-card">
+          <span class="tl-time">9:00 AM</span>
+          <h3>हल्दी</h3>
+          <p>Turmeric ceremony — blessing the couple with glow &amp; good cheer.</p>
+        </div>
+      </article>
+
+      <article class="tl-item reveal">
+        <div class="tl-date"><span class="tl-day">01</span><span class="tl-mon">DEC</span></div>
+        <div class="tl-card">
+          <span class="tl-time">3:00 PM</span>
+          <h3>मामेरा</h3>
+          <p>Traditional maternal-family celebration.</p>
+        </div>
+      </article>
+
+      <article class="tl-item reveal tl-featured">
+        <div class="tl-date"><span class="tl-day">02</span><span class="tl-mon">DEC</span></div>
+        <div class="tl-card">
+          <span class="tl-time">10:00 AM</span>
+          <h3>सगाई · Engagement</h3>
+          <p>The ring ceremony — families formally united in joy.</p>
+        </div>
+      </article>
+
+      <article class="tl-item reveal">
+        <div class="tl-date"><span class="tl-day">02</span><span class="tl-mon">DEC</span></div>
+        <div class="tl-card">
+          <span class="tl-time">5:00 PM</span>
+          <h3>आशीर्वाद समारोह</h3>
+          <p>Aashirwad Ceremony · Maa Mangaldevi Mandir, Singhana Road, Manawar</p>
+        </div>
+      </article>
+
+      <article class="tl-item reveal tl-highlight">
+        <div class="tl-date"><span class="tl-day">02</span><span class="tl-mon">DEC</span><span class="tl-year">2026</span></div>
+        <div class="tl-card">
+          <span class="tl-time">8:00 PM</span>
+          <h3>शुभ लग्न · The Wedding</h3>
+          <p>The sacred wedding vows under the mandap — the moment we've all waited for.</p>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ══════════ 7 · EVENT VISUALS ══════════ -->
+  <section class="section event-visuals" id="highlights">
+    <div class="section-head">
+      <p class="eyebrow reveal">Moments to Treasure</p>
+      <h2 class="section-title reveal">The <em>Celebrations</em></h2>
+      <div class="section-rule reveal"></div>
+    </div>
+    <div class="ev-grid">
+      <figure class="ev-card reveal" data-zoom>
+        <div class="ev-img placeholder" data-photo="assets/events/haldi.jpg"><span>Haldi</span></div>
+        <figcaption><h3>हल्दी · Haldi</h3><p>Golden turmeric blessings</p></figcaption>
+      </figure>
+      <figure class="ev-card reveal" data-zoom>
+        <div class="ev-img placeholder" data-photo="assets/events/mandap.jpg"><span>Mandap</span></div>
+        <figcaption><h3>मंडप · Mandap</h3><p>The sacred wedding pavilion</p></figcaption>
+      </figure>
+      <figure class="ev-card reveal" data-zoom>
+        <div class="ev-img placeholder" data-photo="assets/events/mamera.jpg"><span>Mamera</span></div>
+        <figcaption><h3>मामेरा · Mamera</h3><p>Maternal family joy</p></figcaption>
+      </figure>
+      <figure class="ev-card reveal" data-zoom>
+        <div class="ev-img placeholder" data-photo="assets/events/engagement.jpg"><span>Engagement</span></div>
+        <figcaption><h3>सगाई · Engagement</h3><p>Two families, one promise</p></figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ══════════ 8 · VENUE ══════════ -->
+  <section class="section venue" id="venue">
+    <div class="section-head">
+      <p class="eyebrow reveal">Where Love Resides</p>
+      <h2 class="section-title reveal">The <em>Royal Venue</em></h2>
+      <div class="section-rule reveal"></div>
+    </div>
+    <div class="venue-wrap reveal">
+      <div class="venue-art" aria-hidden="true">
+        <div class="venue-palace"></div>
+        <div class="venue-floral"></div>
+      </div>
+      <div class="venue-info">
+        <h3>Juni Manawar</h3>
+        <p class="venue-sub">District Dhar · Madhya Pradesh · India</p>
+        <p class="venue-desc">A royal destination nestled in the heart of Malwa — where palace grandeur meets warm Rajasthani hospitality.</p>
+        <div class="venue-actions">
+          <a class="btn btn-gold" id="mapsBtn" href="#" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-5.5-7-11a7 7 0 1 1 14 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+            Get Directions
+          </a>
+          <button class="btn btn-ghost" id="copyVenue" type="button">Copy Address</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ 9 · FAMILY ══════════ -->
+  <section class="section family" id="family">
+    <div class="section-head">
+      <p class="eyebrow reveal">With Hearts Full of Joy</p>
+      <h2 class="section-title reveal">The <em>Inviting Families</em></h2>
+      <div class="section-rule reveal"></div>
+    </div>
+    <div class="family-card reveal">
+      <div class="family-om">ॐ</div>
+      <p class="family-invite">Cordially invite you to celebrate the wedding of our children</p>
+      <div class="family-names">
+        <p><strong>श्री लोकेश जी</strong> एवं <strong>स्मृति अनिता भण्डारी</strong></p>
+        <p>विजय · हरशिता · श्रावणी एवं <strong>समस्त भण्डारी परिवार</strong></p>
+      </div>
+      <div class="family-divider"><span>❤</span></div>
+      <div class="family-names">
+        <p><strong>श्री भरत सिंह कुशवाह</strong> एवं परिवार</p>
+        <p>मयूर के परिवार के साथ — together with the Kushwah family</p>
+      </div>
+      <button class="btn btn-gold" id="copyInvite" type="button">Copy Invitation Text</button>
+    </div>
+  </section>
+
+  <!-- ══════════ 10 · RSVP ══════════ -->
+  <section class="section rsvp" id="rsvp">
+    <div class="section-head">
+      <p class="eyebrow reveal">Join the Celebration</p>
+      <h2 class="section-title reveal">Will You <em>Attend?</em></h2>
+      <div class="section-rule reveal"></div>
+    </div>
+    <form class="rsvp-form reveal" id="rsvpForm">
+      <div class="rsvp-field">
+        <label for="rsvpName">Your Name</label>
+        <input type="text" id="rsvpName" name="name" placeholder="Enter your name" required>
+      </div>
+      <div class="rsvp-field">
+        <label for="rsvpPhone">Phone Number</label>
+        <input type="tel" id="rsvpPhone" name="phone" placeholder="10-digit mobile number" pattern="[0-9]{10}" required>
+      </div>
+      <div class="rsvp-field">
+        <label>Will you attend?</label>
+        <div class="rsvp-choices">
+          <label class="rsvp-choice"><input type="radio" name="attend" value="Yes, Joyfully!" checked><span>Yes, Joyfully!</span></label>
+          <label class="rsvp-choice"><input type="radio" name="attend" value="Maybe"><span>Maybe</span></label>
+          <label class="rsvp-choice"><input type="radio" name="attend" value="Cannot make it"><span>Cannot make it</span></label>
+        </div>
+      </div>
+      <div class="rsvp-field">
+        <label for="rsvpGuests">Number of Guests</label>
+        <select id="rsvpGuests" name="guests">
+          <option>1</option><option>2</option><option>3</option><option>4</option><option>5+</option>
+        </select>
+      </div>
+      <button type="submit" class="btn btn-gold btn-block">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M17.5 14.4c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.14-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.5 0 1.47 1.07 2.9 1.22 3.1.15.2 2.11 3.22 5.1 4.51.71.31 1.27.49 1.7.63.72.23 1.37.2 1.88.12.58-.09 1.76-.72 2.01-1.42.25-.7.25-1.29.17-1.42-.07-.13-.27-.2-.57-.35M12.05 21.79h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.9-9.88a9.82 9.82 0 0 1 9.88 9.89c0 5.45-4.43 9.88-9.89 9.88m8.42-18.3A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.33.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.9 11.9 0 0 0 5.68 1.45h.01c6.55 0 11.89-5.34 11.89-11.9 0-3.18-1.24-6.16-3.47-8.4"/></svg>
+        Send RSVP on WhatsApp
+      </button>
+      <p class="rsvp-note">Your response will open in WhatsApp with the details pre-filled.</p>
+    </form>
+  </section>
+
+  <!-- ══════════ 11 · SHARE ══════════ -->
+  <section class="section share" id="share">
+    <div class="section-head">
+      <p class="eyebrow reveal">Spread the Joy</p>
+      <h2 class="section-title reveal">Share the <em>Invitation</em></h2>
+      <div class="section-rule reveal"></div>
+    </div>
+    <div class="share-grid reveal">
+      <button class="share-btn" id="shareWhatsApp" type="button">
+        <svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor"><path d="M17.5 14.4c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.14-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.5 0 1.47 1.07 2.9 1.22 3.1.15.2 2.11 3.22 5.1 4.51.71.31 1.27.49 1.7.63.72.23 1.37.2 1.88.12.58-.09 1.76-.72 2.01-1.42.25-.7.25-1.29.17-1.42-.07-.13-.27-.2-.57-.35M12.05 21.79h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.9-9.88a9.82 9.82 0 0 1 9.88 9.89c0 5.45-4.43 9.88-9.89 9.88m8.42-18.3A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.33.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.9 11.9 0 0 0 5.68 1.45h.01c6.55 0 11.89-5.34 11.89-11.9 0-3.18-1.24-6.16-3.47-8.4"/></svg>
+        <span>WhatsApp</span>
+      </button>
+      <button class="share-btn" id="shareCopy" type="button">
+        <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+        <span>Copy Link</span>
+      </button>
+      <button class="share-btn" id="sharePrint" type="button">
+        <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 9V2h12v7"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+        <span>Print / PDF</span>
+      </button>
+    </div>
+  </section>
+
+  <!-- ══════════ 12 · BLESSING / FOOTER ══════════ -->
+  <footer class="footer" id="blessing">
+    <div class="footer-inner">
+      <div class="footer-om reveal">ॐ</div>
+      <p class="footer-blessing reveal">"सर्वे भवन्तु सुखिनः"</p>
+      <p class="footer-hindi reveal">सर्वे भवन्तु सुखिनः · सर्वे सन्तु निरामयाः</p>
+      <p class="footer-sub reveal">May all beings be happy · May all be free from illness</p>
+      <div class="footer-names reveal">
+        <p class="footer-big">Ashwini <em>❤</em> Mayur</p>
+        <p class="footer-date">02 · 12 · 2026 · Juni Manawar, Dhar, MP</p>
+      </div>
+      <div class="footer-floral" aria-hidden="true"></div>
+      <p class="footer-credit">Crafted with love · The Royal Wedding Experience</p>
+    </div>
+  </footer>
+
+</main>
+
+<audio id="bgMusic" loop preload="none">
+  <source src="assets/music/wedding.mp3" type="audio/mpeg">
+</audio>
+
+<script src="script.js"></script>
+</body>
+</html>
